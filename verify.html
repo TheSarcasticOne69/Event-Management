@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Custom Animations */
+    .hover-zoom:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #ff5f6d, #ffc371);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    body {
+
+
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: black;
+    }
+
+    nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+  height: 13%;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0); /* Transparent background initially */
+  transition: background 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+}
+
+nav.blur {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the blur effect */
+  backdrop-filter: blur(10px); /* Apply blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* Compatibility with Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Optional border */
+}
+
+
+
+
+
+  /* Add these styles to your existing CSS */
+
+  /* Keyframes for border animation */
+  @keyframes border-animation {
+  0% {
+    border-color: red;
+  }
+  16% {
+    border-color: blue;
+  }
+  33% {
+    border-color: green;
+  }
+  50% {
+    border-color: yellow;
+  }
+  66% {
+    border-color: orange;
+  }
+  83% {
+    border-color: purple;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+
+  /* Navbar links with animated border */
+  .navbar-links a {
+    text-decoration: none;
+    color: white; /* Text color */
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px; /* Add some padding */
+    transition: all 0.3s ease;
+    border: 3px solid transparent; /* Add a border */
+    animation: border-animation 3s infinite; /* Apply the animation */
+  }
+
+  /* Hover effect for better interaction */
+  .navbar-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background color on hover */
+    border-radius: 5px; /* Rounded corners */
+    color: black;
+  }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .account-icon {
+      font-size: 35px;
+      color: white; /* Change color to make it visible over the image */
+      cursor: pointer;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 45px;
+      margin-top: 15px;
+      margin-left: 40%;
+      font-weight: 750;
+      font-size: 25px;
+      list-style: none; /* Remove the list dots */
+      padding: 0; /* Remove padding */
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: white; /* Change color to white for better visibility */
+    }
+
+    /* Mobile menu icon (hamburger) */
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-icon span {
+      width: 30px;
+      height: 4px;
+      background-color: white; /* Change color to white for visibility */
+    }
+
+    /* Responsive Design: Mobile View */
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: flex;
+      }
+
+      .navbar-links {
+        display: none; /* Hide navbar links on mobile */
+      }
+
+      .account-icon {
+        display: none; /* Hide account icon on mobile */
+      }
+    }
+
+    .hover-zoom:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    footer a {
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    .hover-underline:hover {
+      text-decoration: underline;
+      color: #f4b400 !important;
+    }
+
+    .btn-outline-light {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .quick-links-container {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+
+    .btn-outline-light:hover {
+      background-color: #f4b400 !important;
+      border-color: #f4b400 !important;
+      color: black !important;
+    }
+
+    footer h5 {
+      letter-spacing: 1.2px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 767px) {
+      .quick-links-container {
+        display: block;
+        gap: 0;
+      }
+
+      .quick-links-container ul {
+        margin-bottom: 1rem;
+      }
+
+      /* Add small left and right padding */
+      footer .container {
+        padding: 0 15px !important;
+      }
+
+      .text-md-start,
+      .text-center {
+        text-align: left !important;
+      }
+
+      .d-flex {
+        justify-content: flex-start !important;
+      }
+
+      .ms-3 {
+        margin-left: 0px !important;
+      }
+    }
+  </style>
+</head>
+
+
+<body class="bg-gray-900 text-white">
+  
+<header>
+  <nav>
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo">
+    </div>
+
+    <!-- Navbar Links (for larger screens) -->
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="allevent.html">Events</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Gallery</a></li>
+    </ul>
+
+
+       
+
+    <!-- Account Icon (using Font Awesome) -->
+    <a href="userlogin.html">
+    <div class="account-icon" >
+      <i class="fas fa-user-circle" style="color: rgb(75, 75, 230);" ></i> <!-- Font Awesome Icon -->
+    </div>
+    </a>
+    
+
+    <!-- Mobile Menu Icon (for small screens) -->
+    <div class="menu-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
+
+<div class="mt-5 pt-4 border-top border-secondary text-md-start text-center" style="margin-right:3%; margin-left: 4%;">
+
+<!-- Offcanvas Sidebar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: black;">
+  <div class="offcanvas-header" >
+    <!-- Account Icon (using Font Awesome) -->
+    <a href="userlogin.html">
+      <div class="account-icon" style="display: flow-root; color: rgb(255, 255, 255);">
+        <i class="fas fa-user-circle" style="font-weight: 900; font-size: 40px;"></i>
+      </div>
+    </a>
+    
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Sidebar Content -->
+    <ul class="navbar-nav" style="font-weight: 800; font-size: 20px; color: white;">
+      <li class="nav-item">
+        <a class="nav-link"  href="index.html"><span >Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="allevent.html">Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Gallery</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+  
+  <!-- Container -->
+  <div class="max-w-6xl mx-auto p-6 space-y-12">
+
+<!-- Header Section -->
+<header class="relative w-full h-64 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+  <img src="img/eventbanner.jpg" alt="Event Banner" class="absolute top-0 left-0 w-full h-full object-cover">
+</header>
+
+  
+  <!-- Event Name Section -->
+<section class="bg-gray-800 rounded-lg shadow-lg p-8">
+  <div class="flex flex-col md:flex-row items-center md:space-x-10">
+    <!-- Event Logo -->
+    <div class="flex-shrink-0">
+      <img src="img/eventlogo.jpg" alt="Event Logo" class="w-36 rounded-lg shadow-md hover-zoom">
+    </div>
+    <!-- Event Details -->
+    <div class="mt-6 md:mt-0 text-center md:text-left">
+      <h1 class="text-5xl font-extrabold text-yellow-400">✨ Azure Ideathon ✨</h1>
+      <div class="mt-4 text-lg space-y-4">
+        <!-- Event Date -->
+        <div class="flex items-center space-x-3">
+          <span><strong class="text-yellow-500">Event Date:</strong> 15th December 2025</span>
+          <i class="fas fa-calendar-alt text-yellow-500"></i>
+        </div>
+        <!-- Last Date to Register -->
+        <div class="flex items-center space-x-3">
+          <span><strong class="text-green-500">Register Dedline:</strong> 10th 2025</span>
+          <i class="fas fa-calendar-times text-green-500"></i>
+        </div>
+        <!-- Location -->
+        <div class="flex items-center space-x-3">
+          <span><strong class="text-blue-500">Location:</strong> Microsoft office bangalore, India</span>
+          <i class="fas fa-map-marker-alt text-blue-500"></i>
+        </div>
+        <!-- Pricing -->
+        <div class="flex items-center space-x-3">
+          <span><strong class="text-red-500">Pricing:</strong> free</span>
+          <i class="fas fa-tags text-red-500"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Event Description Section -->
+    <section class="bg-gray-800 rounded-lg shadow-lg p-8 hover-zoom">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-4">🌟 About the Event</h2>
+      <p class="text-lg leading-relaxed">
+        We invite any researcher - from students to academics to employees of public and private organizations—to build something with any of the Azure Services.
+        You will learn how to get started with your Azure Cloud journey as well.      </p>
+    </section>
+
+    <!-- Prizes Section -->
+    <section class="bg-gray-800 rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-green-500 mb-6">🏆 Prizes</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-red-500 text-white text-center py-6 px-4 rounded-lg shadow-md hover-zoom">
+          🥇 <strong class="block text-2xl">1st Prize</strong>
+          <p class="mt-2">$10,000</p>
+        </div>
+        <div class="bg-yellow-500 text-gray-900 text-center py-6 px-4 rounded-lg shadow-md hover-zoom">
+          🥈 <strong class="block text-2xl">2nd Prize</strong>
+          <p class="mt-2">$5,000</p>
+        </div>
+        <div class="bg-pink-500 text-white text-center py-6 px-4 rounded-lg shadow-md hover-zoom">
+          🥉 <strong class="block text-2xl">3rd Prize</strong>
+          <p class="mt-2">$2,500</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-800 rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-green-500 mb-6">🏆 Other Prizes</h2>
+      
+        <div class="bg-green-600 text-white text-center py-6 px-4 rounded-lg shadow-md hover-zoom">
+          🥇 <strong class="block text-2xl">Certificate to all particepents</strong>
+          <p class="mt-2">#</p>
+        </div>
+      
+    
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-gray-800 rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold text-orange-500 mb-6">❓ Frequently Asked Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <strong class="text-yellow-500 text-lg">Q: What is the registration fee?</strong>
+          <p class="mt-2">A: Registration is completely free.</p>
+        </div>
+        <div>
+          <strong class="text-green-500 text-lg">Q: Who can participate?</strong>
+          <p class="mt-2">A: Anyone interested in innovation and creativity can join.</p>
+        </div>
+        <div>
+          <strong class="text-red-500 text-lg">Q: Is there a team limit?</strong>
+          <p class="mt-2">A: Yes, a maximum of 4 members per team is allowed.</p>
+        </div>
+        <div>
+          <strong class="text-pink-500 text-lg">Q: Is there a team limit?</strong>
+          <p class="mt-2">A: Yes, a maximum of 4 members per team is allowed.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <divclass="bg-gray-900">
+    <!-- Container that defines width -->
+    <div class="w-full max-w-4xl mx-auto p-4 flex justify-center">
+      <!-- Button -->
+      <button class="px-4 py-2 bg-yellow-500 text-white rounded-lg flex items-center hover-zoom justify-center space-x-2 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">
+        <i class="fas fa-save"></i>
+        <span style="color: black; font-weight: bold; font-size: larger;">Verify & Publish</span>
+      </button>
+    </div>
+</div>
+
+  <div class="mt-5 pt-4 border-top border-secondary text-md-start text-center" style="margin-right:10%; margin-left: 10%;">
+
+    <footer class="bg-gray-900 text-light py-5">
+      <div class="container">
+        <div class="row gy-5 align-items-start">
+          <!-- Logo and About Section -->
+          <div class="col-lg-4 col-md-6 text-center text-md-start">
+            <div class="d-flex align-items-center justify-content-md-start justify-content-center mb-4">
+              <div class="rounded-circle d-flex justify-content-center align-items-center shadow-lg"
+              style="width: 80px; height: 80px; background-color: transparent;">
+           <img src="img/logo.png" alt="IIT Bombay Logo" class="img-fluid" style="width: 50px;">
+         </div>
+         
+              <h3 class="ms-3 text-warning fw-bold mb-0">Events</h3>
+            </div>
+            <p class="small fw-bold">
+              <strong>Students Of GGITS  CS-3</strong><br><br>
+              Student at Gyan Ganga Institute of <br>Technology and Sciences,<br>
+              Jabalpur, Madhya Pradesh 482003
+            </p><br>
+            <a href="https://maps.app.goo.gl/SK2EivuHy2wQvEKo8" style="text-decoration: none; font-weight: 700;"   class="location d-flex align-items-center gap-2">
+              <span>Location</span>
+              <i class="fa fa-map-marker-alt text-primary" style="font-size: 1.5rem;"></i>
+              
+            </a>
+            
+          </div>
+    
+          <!-- Quick Links Section -->
+          <div class="col-lg-4 col-md-6 text-center text-md-start">
+            <h5 class="text-uppercase text-warning fw-bold mb-4">Quick Links</h5>
+            <div class="quick-links-container" style="display: flex; gap: 90px; flex-wrap: wrap;">
+              <ul class="list-unstyled fw-bold">
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">Home</a></li>
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">past Events</a>
+                </li>
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">Feedback</a></li>
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">Our Patners</a></li>
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">About us</a></li>
+              </ul>
+              <ul class="list-unstyled fw-bold">
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">Events</a></li>
+                <li class="mb-3"><a href="#" class="text-light text-decoration-none small hover-underline">Help</a></li>
+                <li><a href="#" class="text-light text-decoration-none small hover-underline">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </div>
+    
+          <!-- Contact Section -->
+          <div class="col-lg-4 text-center text-md-start">
+            <h5 class="text-uppercase text-warning fw-bold mb-4">Contact Us</h5>
+            <p class="small fw-bold mb-3">
+              📞 9876554321<br>
+              ✉️ <a href="mailto:dean.acr.office@iitbombay.org"
+                class="text-warning text-decoration-none fw-bold">Events@gmail.com</a>
+            </p>
+            <div class="d-flex justify-content-md-start justify-content-center gap-3 mt-4">
+              <!-- Facebook Icon -->
+              <a href="#" class="d-flex align-items-center justify-content-center"
+                style="text-decoration: none;">
+                <i class="bi bi-facebook" style="font-size: 1.5rem; color: #1877F2;"></i>
+              </a>
+            
+               <!-- Instagram Icon -->
+               <a href="#" class="d-flex align-items-center justify-content-center"
+               style="text-decoration: none;">
+               <i class="bi bi-instagram" style="font-size: 1.5rem; color: #E4405F;"></i>
+             </a>
+                      
+              <!-- LinkedIn Icon -->
+              <a href="#" class="d-flex align-items-center justify-content-center"
+                style="text-decoration: none;">
+                <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0A66C2;"></i>
+              </a>
+            
+             
+            </div>
+            
+            
+            
+            
+          </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="mt-5 pt-4 border-top border-secondary text-md-start text-center">
+          <small class="text-secondary fw-bold">© 2024 Events. All Rights Reserved.</small>
+        </div>
+      </div>
+    </footer>
+      
+      <!-- JavaScript -->
+      <script>
+       
+    
+       
+      // Wait for the DOM to fully load
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector("nav"); // Select the navbar
+        const targetSection = document.querySelector(".container.my-5"); // Select the target section
+    
+        window.addEventListener("scroll", function () {
+          // Get the position of the target section
+          const sectionTop = targetSection.offsetTop;
+    
+          // Check if the scroll position has reached the section
+          if (window.scrollY >= sectionTop) {
+            navbar.classList.add("blur"); // Add the blur class
+          } else {
+            navbar.classList.remove("blur"); // Remove the blur class
+          }
+        });
+      });
+    
+      </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
